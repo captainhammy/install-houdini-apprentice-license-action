@@ -1,5 +1,8 @@
 name: "Install Apprentice Licenses"
 description: "Install Houdini Apprentice licenses for the duration of the tests."
+branding:
+  icon: 'arrow-up-right'
+  color: 'orange'
 inputs:
   client_id:
     description: "The SideFX Web API client_id value to use."
