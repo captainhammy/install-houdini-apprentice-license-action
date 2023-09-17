@@ -6,7 +6,7 @@ This Github Action will install Apprentice (non-commercial) Houdini related lice
 
 ```yaml
   - name: Install Apprentice Licenses
-    uses: captainhammy/install-houdini-apprentice-license-action@v2
+    uses: captainhammy/install-houdini-apprentice-license-action@v3
     with:
       client_id: ${{ secrets.SESI_CLIENT_ID }}
       client_secret_key:  ${{ secrets.SESI_SECRET_KEY }}
