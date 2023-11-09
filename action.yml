@@ -12,10 +12,6 @@ inputs:
     description: "The SideFX Web API client_secret_key value to use."
     required: true
 
-  houdini_version:
-    description: "The Houdini {major.minor} version to redeem a license for."
-    required: true
-
 runs:
   using: "composite"
 
@@ -28,17 +24,13 @@ runs:
       run: echo client_secret_key is empty && exit 1
       shell: bash
 
-    - if: inputs.houdini_version == ''
-      run: echo houdini_version is empty && exit 1
-      shell: bash
-
     - run: python3 -m pip install requests
       shell: bash
 
     - run: sesinetd
       shell: bash
 
-    - run: python3 ${GITHUB_ACTION_PATH}/install_apprentice_keys.py ${{ inputs.client_id }} ${{ inputs.client_secret_key }} ${{ inputs.houdini_version }}
+    - run: python3 ${GITHUB_ACTION_PATH}/install_apprentice_keys.py ${{ inputs.client_id }} ${{ inputs.client_secret_key }}
       shell: bash
 
     - run: hserver -h localhost:1715
