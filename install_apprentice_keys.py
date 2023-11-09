@@ -30,15 +30,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     parser.add_argument("client_secret")
 
-    parser.add_argument("houdini_version")
-
     return parser
 
 
 def get_keys_to_install(
     client_id: str,
     client_secret_key: str,
-    houdini_version: str,
     server_name: str,
     server_code: str,
 ) -> List[str]:
@@ -47,7 +44,6 @@ def get_keys_to_install(
     Args:
         client_id: The SideFX client id.
         client_secret_key: The SideFX client secret.
-        houdini_version: The Houdini version to request a license for.
         server_name: The local server name.
         server_code: The local server code.
 
@@ -64,7 +60,6 @@ def get_keys_to_install(
     license_strings = service.license.get_non_commercial_license(
         server_name=server_name,
         server_code=server_code,
-        version=houdini_version,
         products=PRODUCTS_TO_INSTALL,
     )
     return license_strings["license_keys"]
@@ -104,7 +99,6 @@ def main() -> None:
     license_keys = get_keys_to_install(
         parsed_args.client_id,
         parsed_args.client_secret,
-        parsed_args.houdini_version,
         server_name,
         server_code,
     )

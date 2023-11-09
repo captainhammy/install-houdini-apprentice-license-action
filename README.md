@@ -10,7 +10,6 @@ This Github Action will install Apprentice (non-commercial) Houdini related lice
     with:
       client_id: ${{ secrets.SESI_CLIENT_ID }}
       client_secret_key:  ${{ secrets.SESI_SECRET_KEY }}
-      houdini_version: 19.5
 ```
 
 ### Inputs
@@ -19,7 +18,6 @@ This action uses the [SideFX Web API](https://www.sidefx.com/docs/api/) to redee
 
 You must provide:
 - [Client id and Client secret](https://www.sidefx.com/docs/api/credentials/index.html) values.
-- The Houdini **{major.minor}** version to redeem a license for.
 
 If any of the values are not defined then the action will fail.
 
