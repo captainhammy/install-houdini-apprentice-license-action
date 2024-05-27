@@ -6,7 +6,7 @@ This Github Action will install Apprentice (non-commercial) Houdini related lice
 
 ```yaml
   - name: Install Apprentice Licenses
-    uses: captainhammy/install-houdini-apprentice-license-action@v4
+    uses: captainhammy/install-houdini-apprentice-license-action@v5
     with:
       client_id: ${{ secrets.SESI_CLIENT_ID }}
       client_secret_key:  ${{ secrets.SESI_SECRET_KEY }}
@@ -34,5 +34,5 @@ This action requires that the running environment have the `python3` command ava
 **pip** module available to install its dependencies:
 
 ```bash
-python3 -m pip install requests
+python3 -m pip install -r requirements.txt
 ```
