@@ -7,9 +7,8 @@ from __future__ import annotations
 import argparse
 import socket
 import subprocess
-from typing import List
 
-# SideFX
+# install-houdini-apprentice-license-action
 import sidefx
 
 ACCESS_TOKEN_URL = "https://www.sidefx.com/oauth2/application_token"
@@ -22,7 +21,6 @@ def build_parser() -> argparse.ArgumentParser:
 
     Returns:
         An argument parser to get the required input information.
-
     """
     parser = argparse.ArgumentParser()
 
@@ -38,7 +36,7 @@ def get_keys_to_install(
     client_secret_key: str,
     server_name: str,
     server_code: str,
-) -> List[str]:
+) -> list[str]:
     """Get a list of non-commercial license keys to install.
 
     Args:
@@ -50,7 +48,7 @@ def get_keys_to_install(
     Returns:
         The list of license keys to install.
     """
-    service = sidefx.service(
+    service = sidefx.service(  # type: ignore
         access_token_url=ACCESS_TOKEN_URL,
         client_id=client_id,
         client_secret_key=client_secret_key,
@@ -72,12 +70,10 @@ def get_server_code() -> str:
         The sesinetd server code.
     """
     result = subprocess.check_output(["sesictrl", "print-server"])
-    server_code = result.decode().split("\n")[1].split()[2]
-
-    return server_code
+    return result.decode().split("\n")[1].split()[2]
 
 
-def install_licenses(license_keys: List[str]) -> None:
+def install_licenses(license_keys: list[str]) -> None:
     """Install a list of license keys.
 
     Args:

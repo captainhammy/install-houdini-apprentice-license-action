@@ -1,6 +1,7 @@
+[![Tests](https://github.com/captainhammy/install-houdini-apprentice-license-action-action/actions/workflows/tests.yml/badge.svg)](https://github.com/captainhammy/install-houdini-apprentice-license-action-action/actions/workflows/tests.yml)
 # Install Apprentice Licenses
 
-This Github Action will install Apprentice (non-commercial) Houdini related licenses.
+This GitHub Action will install Apprentice (non-commercial) Houdini related licenses.
 
 ## Usage
 
